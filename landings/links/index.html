@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palermo Wine Club · Links</title>
+<meta name="description" content="Próximos eventos, reservas y carta de Palermo Wine Club. Gorriti 5646, Palermo.">
+
+<!--
+  LINK DE LA BIO DE INSTAGRAM · Palermo Wine Club
+  - Los EVENTOS salen solos de la planilla "PWC — Popup web" (la misma del popup de la web):
+    aparecen los que tienen Mostrar = sí y fecha de hoy en adelante. No hay que tocar este archivo.
+  - En los links de Eventbrite, el "aff=popupweb" de la planilla se cambia solo por "aff=ig",
+    así en Eventbrite las ventas de la bio se ven aparte.
+  - Los LINKS FIJOS (reservar, carta, etc.) se cambian abajo, en la lista LINKS_FIJOS.
+  - Píxel de Meta: cuenta la visita y los clics.
+-->
+
+<!-- Píxel de Meta -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1715676559841695');
+fbq('track', 'PageView');
+</script>
+
+<style>
+  :root{--bg:#131313;--cream:#F2E7DE;--red:#BF0811;--line:rgba(242,231,222,0.18);--muted:rgba(242,231,222,0.66);--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--serif:Georgia,'Times New Roman',serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--cream);font-family:var(--sans);line-height:1.45;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:460px;margin:0 auto;padding:44px 18px 56px}
+  header{text-align:center;margin-bottom:30px}
+  h1{font-family:var(--serif);font-size:30px;font-weight:700}
+  h1 .red{color:var(--red)}
+  .sub{margin-top:6px;font-size:13px;color:var(--muted)}
+  .titulo-bloque{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px}
+  /* tarjeta de evento */
+  .evento{display:flex;gap:14px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+  .evento img{width:78px;height:98px;object-fit:cover;border-radius:8px;flex-shrink:0}
+  .evento .fecha{font-size:12px;color:var(--red);font-weight:600;text-transform:uppercase;letter-spacing:0.06em}
+  .evento .nombre{font-family:var(--serif);font-size:17px;line-height:1.2;margin:3px 0 9px}
+  .evento .boton{display:inline-block;padding:7px 14px;border-radius:999px;background:var(--cream);color:var(--bg);font-size:13px;font-weight:600}
+  /* links fijos */
+  .link{display:block;text-align:center;padding:15px;border:1.5px solid var(--line);border-radius:999px;margin-bottom:10px;font-size:15px;font-weight:600}
+  .link.principal{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+  .vacio{font-size:14px;color:var(--muted);text-align:center;padding:8px 0}
+  footer{margin-top:30px;text-align:center;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Palermo Wine Club<span class="red">.</span></h1>
+    <p class="sub">Gorriti 5646 · Palermo</p>
+  </header>
+
+  <p class="titulo-bloque">Próximos eventos</p>
+  <div id="eventos"><p class="vacio">Cargando…</p></div>
+
+  <p class="titulo-bloque">El Wine</p>
+  <div id="fijos"></div>
+
+  <footer>@palermowineclub · @vinora.club</footer>
+</div>
+
+<script>
+// ===== LINKS FIJOS: para cambiar uno, editar acá y volver a publicar =====
+// "principal: true" lo pinta como botón lleno.
+var LINKS_FIJOS = [
+  { texto: 'Reservar mesa', principal: true,
+    url: 'https://wa.me/5491125362984?text=Hola!%20Vengo%20de%20Instagram%20y%20quiero%20reservar%20una%20mesa.' },
+  { texto: 'Ver la carta', url: 'https://menu.fu.do/palermowineclub/qr-menu' },
+  { texto: 'Catas y Vinora', url: 'https://celinamescalante.github.io/pwc/landings/catas/' },
+  { texto: 'Cómo llegar', url: 'https://maps.google.com/?q=Palermo+Wine+Club,+Gorriti+5646,+Buenos+Aires' }
+];
+
+// La misma planilla que usa el popup de la web
+var PLANILLA_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR4q9_aPo_5fsHOGx9-0puzk9O-Rg9Sn1uxKaLoBy2chgLvbmFeT0bj5XALwt4ZxseUF46bpc9DtCkv/pub?gid=1522767980&single=true&output=csv';
+var DIAS = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+
+// --- links fijos ---
+var fijos = document.getElementById('fijos');
+LINKS_FIJOS.forEach(function(l){
+  var a = document.createElement('a');
+  a.className = 'link' + (l.principal ? ' principal' : '');
+  a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
+  a.textContent = l.texto;
+  a.addEventListener('click', function(){ fbq('track', l.texto === 'Reservar mesa' ? 'Contact' : 'ViewContent'); });
+  fijos.appendChild(a);
+});
+
+// --- lee el CSV (soporta comas dentro de comillas) ---
+function leerCSV(texto){
+  var filas = [], fila = [], celda = '', comillas = false;
+  for (var i = 0; i < texto.length; i++){
+    var c = texto[i];
+    if (comillas){
+      if (c === '"' && texto[i+1] === '"'){ celda += '"'; i++; }
+      else if (c === '"'){ comillas = false; }
+      else { celda += c; }
+    } else if (c === '"'){ comillas = true; }
+    else if (c === ','){ fila.push(celda); celda = ''; }
+    else if (c === '\n'){ fila.push(celda); filas.push(fila); fila = []; celda = ''; }
+    else if (c !== '\r'){ celda += c; }
+  }
+  fila.push(celda); filas.push(fila);
+  return filas;
+}
+
+// "25/11/2026" -> fecha
+function leerFecha(t){
+  var m = (t || '').trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  return m ? new Date(+m[3], +m[2]-1, +m[1]) : null;
+}
+
+// cambia el identificador de Eventbrite para que la venta cuente como "ig"
+function linkDeBio(url){
+  if (url.indexOf('aff=') > -1) return url.replace(/aff=[^&]*/, 'aff=ig');
+  if (url.indexOf('eventbrite') > -1) return url + (url.indexOf('?') > -1 ? '&' : '?') + 'aff=ig';
+  return url;
+}
+
+// --- eventos de la planilla ---
+var caja = document.getElementById('eventos');
+fetch(PLANILLA_CSV + '&t=' + Date.now())
+  .then(function(r){ return r.text(); })
+  .then(function(texto){
+    var hoy = new Date(); hoy.setHours(0,0,0,0);
+    var eventos = leerCSV(texto).slice(1)
+      .map(function(f){
+        return { fecha: leerFecha(f[0]), titulo: (f[1]||'').trim(), flyer: (f[2]||'').trim(),
+                 boton: (f[3]||'').trim(), link: (f[4]||'').trim(),
+                 mostrar: (f[5]||'').trim().toLowerCase() !== 'no' };
+      })
+      .filter(function(ev){ return ev.mostrar && ev.fecha && ev.link && ev.fecha >= hoy; })
+      .sort(function(a, b){ return a.fecha - b.fecha; });
+
+    caja.innerHTML = '';
+    if (!eventos.length){ caja.innerHTML = '<p class="vacio">Pronto, nuevas fechas.</p>'; return; }
+
+    eventos.forEach(function(ev){
+      var a = document.createElement('a');
+      a.className = 'evento'; a.href = linkDeBio(ev.link); a.target = '_blank'; a.rel = 'noopener';
+      a.addEventListener('click', function(){ fbq('track', 'InitiateCheckout'); });
+      var fecha = DIAS[ev.fecha.getDay()] + ' ' + ev.fecha.getDate() + '/' + (ev.fecha.getMonth()+1);
+      a.innerHTML = (ev.flyer ? '<img alt="">' : '') +
+        '<div><p class="fecha"></p><p class="nombre"></p><span class="boton"></span></div>';
+      if (ev.flyer){ a.querySelector('img').src = ev.flyer; a.querySelector('img').alt = ev.titulo; }
+      a.querySelector('.fecha').textContent = fecha;
+      a.querySelector('.nombre').textContent = ev.titulo;
+      a.querySelector('.boton').textContent = ev.boton || 'Más info';
+      caja.appendChild(a);
+    });
+  })
+  .catch(function(){ caja.innerHTML = '<p class="vacio">No se pudieron cargar los eventos.</p>'; });
+</script>
+</body>
+</html>
