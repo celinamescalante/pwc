@@ -48,6 +48,8 @@ fbq('track', 'PageView');
   .link{display:block;text-align:center;padding:15px;border:1.5px solid var(--line);border-radius:999px;margin-bottom:10px;font-size:15px;font-weight:600}
   .link.principal{background:var(--cream);color:var(--bg);border-color:var(--cream)}
   .vacio{font-size:14px;color:var(--muted);text-align:center;padding:8px 0}
+  .redes{display:flex;justify-content:center;gap:22px;margin-top:16px}
+  .redes a{display:flex}
   footer{margin-top:30px;text-align:center;font-size:12px;color:var(--muted)}
 </style>
 </head>
@@ -55,7 +57,16 @@ fbq('track', 'PageView');
 <div class="wrap">
   <header>
     <h1>Palermo Wine Club<span class="red">.</span></h1>
-    <p class="sub">Gorriti 5646 · Palermo</p>
+    <p class="sub">Un bar de vinos en el corazón de Palermo · Gorriti 5646</p>
+    <!-- Íconos de redes -->
+    <div class="redes">
+      <a href="https://www.instagram.com/palermowineclub/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/5491125362984?text=Hola!%20Vengo%20de%20Instagram." target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.3-1.8-.9-.8.8c-1-.4-1.9-1.3-2.3-2.3l.8-.8-.9-1.8L9 9.5z" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
   </header>
 
   <p class="titulo-bloque">Próximos eventos</p>
@@ -75,7 +86,9 @@ var LINKS_FIJOS = [
     url: 'https://wa.me/5491125362984?text=Hola!%20Vengo%20de%20Instagram%20y%20quiero%20reservar%20una%20mesa.' },
   { texto: 'Ver la carta', url: 'https://menu.fu.do/palermowineclub/qr-menu' },
   { texto: 'Catas y Vinora', url: 'https://celinamescalante.github.io/pwc/landings/catas/' },
-  { texto: 'Cómo llegar', url: 'https://maps.google.com/?q=Palermo+Wine+Club,+Gorriti+5646,+Buenos+Aires' }
+  { texto: 'Cómo llegar', url: 'https://maps.google.com/?q=Palermo+Wine+Club,+Gorriti+5646,+Buenos+Aires' },
+  { texto: 'Web de Palermo Wine Club', url: 'https://www.palermowineclub.com/' },
+  { texto: 'Vinora en Instagram', url: 'https://www.instagram.com/vinora.club/' }
 ];
 
 // La misma planilla que usa el popup de la web
