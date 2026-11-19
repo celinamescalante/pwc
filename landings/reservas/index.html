@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reservá en Palermo Wine Club · Bar de vinos en Palermo</title>
+<meta name="description" content="Vino tirado de bodegas argentinas, cocina propia y música toda la semana. Happy hour de lunes a sábado de 19 a 22. Gorriti 5646, Palermo.">
+<!-- Píxel de Meta (el mismo de Palermo Wine Club) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1715676559841695');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1715676559841695&ev=PageView&noscript=1" alt=""></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Archivo:wght@300;400;600&family=Playfair+Display:ital,wght@1,500&display=swap">
+<style>
+/* Layout: afiche de bar. Títulos en mayúsculas condensadas (como las placas de los videos), bandas rojo "luz de jazz", fotos verticales recortadas como en un feed. Se aleja del sitio (beige y paneles) sin perder la noche. */
+:root{
+  --night:#100c0b;     /* fondo */
+  --ink:#1c1514;       /* superficies */
+  --red:#b81d18;       /* luz roja del jazz y del mural */
+  --wine:#5e1013;      /* rojo profundo para bandas */
+  --paper:#f2e9dc;     /* texto claro */
+  --muted:#b9a99a;     /* texto secundario */
+  --poster:"Anton", Impact, "Arial Narrow", sans-serif;
+  --body:"Archivo", system-ui, sans-serif;
+  --accent:"Playfair Display", Georgia, serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--paper);font-family:var(--body);font-weight:300;font-size:1.05rem;line-height:1.6}
+a{color:var(--paper)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--poster);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.98;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.2rem,6vw,3.6rem)}
+h3{font-size:1.6rem}
+p{margin:0}
+em.hand{font-family:var(--accent);font-style:italic;text-transform:none;letter-spacing:0;color:var(--red)}
+.tag{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--poster);font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em;color:var(--paper);background:var(--red);border:0;padding:.7em 1.5em;text-decoration:none;cursor:pointer;transition:transform .15s, background .15s}
+.btn:hover,.btn:focus-visible{background:#d42a22;transform:translateY(-2px);outline:2px solid var(--paper);outline-offset:3px}
+.mock{background:var(--paper);color:var(--night);font-size:.85rem;text-align:center;padding-block:.5em}
+
+/* Hero partido: texto a la izquierda, foto vertical del salón a la derecha */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;min-height:min(86vh,720px)}
+.hero-text{display:flex;flex-direction:column;justify-content:space-between;gap:2rem;padding-block:2rem 3rem;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:clamp(16px,4vw,3rem);max-width:640px;margin-left:auto;width:100%}
+.brand{font-family:"Abril Fatface", Georgia, serif;font-size:1.6rem;color:var(--paper)} /* como el logo */
+.hero h1{font-size:clamp(3.4rem,10vw,7rem)}
+.hero h1 span{color:var(--red)}
+.hero-lead{display:grid;gap:1.4rem;max-width:34ch}
+.hero-img{background:url("espacio.jpg") center 40%/cover;min-height:420px}
+.addr{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* Cinta de la semana */
+.ticker{background:var(--red);overflow:hidden}
+.ticker ul{list-style:none;margin:0;padding:.9rem 0;display:flex;gap:2.4rem;justify-content:center;flex-wrap:wrap;font-family:var(--poster);text-transform:uppercase;font-size:1.15rem;letter-spacing:.03em}
+.ticker li span{opacity:.75;margin-right:.4em}
+
+section{padding-block:clamp(3.5rem,9vw,6rem)}
+
+/* Lo que hay: tres columnas con foto vertical */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,2rem);margin-top:2.5rem}
+.card{display:grid;gap:.9rem;align-content:start;min-width:0}
+.card .ph{aspect-ratio:3/4;max-width:100%;background:var(--ink) center/cover}
+.card p{color:var(--muted)}
+.card a{font-weight:600;font-size:.95rem;text-underline-offset:4px}
+
+/* La semana */
+.week-band{background:var(--wine)}
+.week{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.week .ph{aspect-ratio:4/5;max-width:100%;background:url("jazz.jpg") center/cover}
+.days{display:grid;gap:0;margin-top:2rem;border-top:1px solid rgba(242,233,220,.3)}
+.day{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding-block:1.1rem;border-bottom:1px solid rgba(242,233,220,.3)}
+.day .d{font-family:var(--poster);text-transform:uppercase;font-size:1.15rem;line-height:1.2}
+.day .d small{display:block;font-family:var(--body);font-size:.8rem;letter-spacing:.08em;opacity:.75}
+.day h3{font-size:1.35rem;margin-bottom:.2rem}
+.day p{opacity:.85}
+.agenda{margin-top:1.4rem;font-size:.95rem;opacity:.85}
+
+/* Formulario */
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.form-side{display:grid;gap:1.2rem}
+.form-side .ph{aspect-ratio:16/11;max-width:100%;background:url("mesa-arriba.jpg") center/cover;margin-top:.6rem}
+form{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.2rem;background:var(--ink);padding:clamp(1.2rem,4vw,2rem);border-top:4px solid var(--red)}
+.field{display:grid;gap:.35rem;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+input,select{font:inherit;font-weight:400;color:var(--paper);background:var(--night);border:1px solid #4a3b37;border-radius:0;padding:.75em .8em;width:100%}
+input:focus,select:focus{outline:2px solid var(--red);border-color:var(--red)}
+.form-foot{grid-column:1/-1;display:grid;gap:.8rem;margin-top:.4rem}
+.form-foot .btn{width:100%}
+.note{font-size:.86rem;color:var(--muted)}
+.done{grid-column:1/-1;border:1px solid var(--red);padding:1rem;font-size:.95rem;display:grid;gap:.5rem}
+
+/* Preguntas */
+.faq{display:grid;margin-top:1.6rem;border-top:1px solid #3a2e2b}
+details{border-bottom:1px solid #3a2e2b;padding-block:1.1rem}
+summary{font-family:var(--poster);text-transform:uppercase;font-size:1.25rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--red)}
+details[open] summary::after{content:"–"}
+details p{margin-top:.6rem;max-width:60ch;color:var(--muted)}
+
+/* Dónde */
+.where{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.where .ph{aspect-ratio:4/5;max-width:100%;background:url("fachada.jpg") center/cover}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1.4rem;margin-top:1.2rem;font-variant-numeric:tabular-nums}
+.hours dt{font-weight:600}
+.hours dd{margin:0;color:var(--muted)}
+footer{border-top:1px solid #3a2e2b;padding-block:1.5rem 6rem;font-size:.85rem;color:var(--muted)}
+
+.sticky{display:none}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr}
+  .hero-img{order:-1;min-height:56vh;max-height:520px}
+  .hero-text{margin:0;max-width:none;padding-right:max(16px, env(safe-area-inset-right, 0px))}
+  .trio{grid-template-columns:1fr}
+  .card .ph{aspect-ratio:4/3}
+  .week,.form-wrap,.where{grid-template-columns:1fr}
+  .week .ph{aspect-ratio:4/3}
+  form{grid-template-columns:1fr}
+  .ticker ul{justify-content:flex-start;padding-left:max(16px, env(safe-area-inset-left, 0px));gap:1.4rem}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;padding:.7rem max(16px, env(safe-area-inset-right, 0px)) calc(.7rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));background:rgba(16,12,11,.95)}
+  .sticky .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-text">
+    <span class="brand">Palermo Wine Club</span>
+    <div class="hero-lead">
+      <h1>¿Nos vemos en el <span>Wine?</span></h1>
+      <p>Vino tirado de bodegas argentinas, cocina propia y música que cambia con la semana. Para venir a tomar algo, cenar o festejar en Palermo.</p>
+      <div><a class="btn" href="#reservar">Reservar mesa</a></div>
+    </div>
+    <span class="addr">Gorriti 5646 · Palermo</span>
+  </div>
+  <div class="hero-img" role="img" aria-label="El salón lleno visto desde la galería, con el mural y las mesas"></div>
+</div>
+
+<div class="ticker" aria-label="La semana en el Wine">
+  <ul>
+    <li><span>Lun a sáb</span>Happy hour 19 a 22</li>
+    <li><span>Martes</span>Jazz 21 h</li>
+    <li><span>Vie y sáb</span>DJ hasta las 3</li>
+  </ul>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="tag">El Wine, por dentro</p>
+    <div class="trio">
+      <div class="card">
+        <div class="ph" style="background-image:url('copa.jpg')" role="img" aria-label="Copa de tinto con quesos y uvas"></div>
+        <h3>El vino, por copa.</h3>
+        <p>Vinos de bodegas argentinas servidos desde nuestra barra de vino tirado. Podés elegir por copa o probar un recorrido de vinos con tapeo. También hay coctelería, cerveza y opciones sin alcohol.</p>
+      </div>
+      <div class="card">
+        <div class="ph" style="background-image:url('cocina.jpg')" role="img" aria-label="El equipo de cocina emplatando"></div>
+        <h3>También se viene a comer.</h3>
+        <p>Tenemos cocina propia, con opciones para picar o cenar.</p>
+        <a href="https://menu.fu.do/palermowineclub/qr-menu" target="_blank" rel="noopener">Ver la carta</a>
+      </div>
+      <div class="card">
+        <div class="ph" style="background-image:url('picada.jpg')" role="img" aria-label="Tabla de quesos y uvas sobre la barra"></div>
+        <h3>Dos pisos y patio.</h3>
+        <p>El mural, una galería que mira al salón y un patio con plantas. Mesas para dos y lugar para venir en grupo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="week-band">
+  <div class="wrap week">
+    <div class="ph" role="img" aria-label="Contrabajista tocando en el bar"></div>
+    <div>
+      <p class="tag" style="color:var(--paper);opacity:.75">La semana</p>
+      <h2 style="margin-top:.6rem">Cada noche <em class="hand" style="color:var(--paper)">suena</em> distinto.</h2>
+      <div class="days">
+        <div class="day">
+          <div class="d">Lun a sáb<small>19 a 22</small></div>
+          <div><h3>¿Salís a las 19?</h3><p>Vino tirado a precio de happy hour hasta las 22.</p></div>
+        </div>
+        <div class="day">
+          <div class="d">Martes<small>21 h</small></div>
+          <div><h3>Martes de jazz.</h3><p>Un trío en vivo en la galería.</p></div>
+        </div>
+        <div class="day">
+          <div class="d">Vie y sáb<small>22 a 3</small></div>
+          <div><h3>Viernes y sábados con DJ.</h3><p>Se cena y se sigue en el mismo lugar: música desde las 22 y bar abierto hasta las 3.</p></div>
+        </div>
+      </div>
+      <p class="agenda">Las demás propuestas de la semana están en la agenda de <a href="https://www.instagram.com/palermowineclub/" target="_blank" rel="noopener">@palermowineclub</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="reservar">
+  <div class="wrap form-wrap">
+    <div class="form-side">
+      <p class="tag">Reservas</p>
+      <h2>¿Cuándo nos vemos?</h2>
+      <p>Una cena de a dos, un after office o un cumpleaños con amigos. Dejanos tu WhatsApp y coordinamos día, horario y mesa por ahí.</p>
+      <div class="ph" role="img" aria-label="Un grupo alrededor de una mesa con lámparas, visto desde arriba"></div>
+    </div>
+    <form id="f" novalidate>
+      <div class="field full">
+        <label for="wpp">Tu WhatsApp</label>
+        <input id="wpp" name="wpp" type="tel" inputmode="tel" autocomplete="tel" placeholder="11 2345 6789" required>
+      </div>
+      <div class="form-foot">
+        <button class="btn" type="submit">Continuar por WhatsApp</button>
+        <p class="note">La mesa queda reservada cuando recibís nuestra confirmación por WhatsApp.</p>
+        <p class="note">Usamos tus datos para gestionar esta solicitud. Si no llegás a enviar el mensaje, podemos contactarte por WhatsApp para continuarla. <a href="#privacidad">Política de privacidad</a></p>
+      </div>
+      <div class="done" id="done" hidden></div>
+    </form>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap" style="max-width:820px">
+    <p class="tag">Antes de reservar</p>
+    <div class="faq">
+      <details open>
+        <summary>¿Hay happy hour todos los días?</summary>
+        <p>De lunes a sábado, de 19 a 22, con vino tirado a precio de happy hour. Los domingos abrimos en fechas especiales y fines de semana largos: las anunciamos en @palermowineclub.</p>
+      </details>
+      <details>
+        <summary>¿Puedo reservar para un grupo o un cumpleaños?</summary>
+        <p>Sí. Dejanos la fecha, el horario y la cantidad de personas. El equipo te confirma disponibilidad y coordina la reserva por WhatsApp.</p>
+      </details>
+      <details>
+        <summary>¿Completar el formulario confirma mi mesa?</summary>
+        <p>Todavía no. Al completar tus datos, continuás por WhatsApp con el mensaje listo para enviar. Ahí coordinamos y te confirmamos la reserva.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap where">
+    <div class="ph" role="img" aria-label="La fachada de Palermo Wine Club de noche, con gente en la puerta"></div>
+    <div>
+      <h2>Estamos en Palermo.</h2>
+      <p style="margin-top:.6rem">Gorriti 5646 · CABA</p>
+      <dl class="hours">
+        <dt>Lunes y martes</dt><dd>19 a 00:30</dd>
+        <dt>Miércoles y jueves</dt><dd>19 a 01</dd>
+        <dt>Viernes y sábados</dt><dd>20 a 03</dd>
+        <dt>Domingos</dt><dd>Fechas especiales y fines de semana largos</dd>
+      </dl>
+      <div style="margin-top:1.6rem"><a class="btn" href="#reservar">Reservar mesa</a></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="privacidad" style="padding-top:0">
+  <div class="wrap" style="max-width:820px">
+    <p class="tag">Política de privacidad</p>
+    <p class="note" style="margin-top:.8rem">Palermo Wine Club (Gorriti 5646, CABA) usa los datos que dejás en esta página solo para responder tu consulta o coordinar tu reserva. No los vendemos ni los compartimos con terceros. Si querés que los borremos, escribinos a eventos@palermowineclub.com. Esta página usa el píxel de Meta para medir las visitas que llegan desde nuestros anuncios.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Palermo Wine Club · Gorriti 5646, CABA · @palermowineclub</div>
+</footer>
+
+<div class="sticky"><a class="btn" href="#reservar">Reservar mesa</a></div>
+
+<script>
+// ===== Dónde se guardan las consultas =====
+// Link de la implementación de Apps Script de la planilla «PWC — Consultas de landings».
+// Mientras esté vacío, el formulario funciona igual pero no guarda nada.
+var CONSULTAS_URL = '';
+
+// De dónde vino la persona: utm_source del anuncio, o meta/google si vino de un clic pago
+function origen(){
+  var q = new URLSearchParams(location.search);
+  var o = q.get('utm_source') || (q.get('fbclid') ? 'meta' : (q.get('gclid') ? 'google' : ''));
+  if (!o) { try { o = document.referrer ? new URL(document.referrer).hostname : 'directo'; } catch(e) { o = 'directo'; } }
+  return { origen: o, campana: q.get('utm_campaign') || '' };
+}
+// Manda los datos a la planilla sin frenar a la persona
+function guardar(datos){
+  if (!CONSULTAS_URL) return;
+  var o = origen(); datos.origen = o.origen; datos.campana = o.campana;
+  try { navigator.sendBeacon(CONSULTAS_URL, JSON.stringify(datos)); } catch(e) {}
+}
+
+// ===== Formulario de reservas: guarda el WhatsApp y abre el chat =====
+var f = document.getElementById('f');
+var done = document.getElementById('done');
+var NUM = '5491125362984';
+var MENSAJE = 'Hola! Vengo de la web y quiero reservar una mesa.';
+f.addEventListener('submit', function(e){
+  e.preventDefault();
+  var wpp = document.getElementById('wpp').value.trim();
+  done.hidden = false;
+  if (wpp.replace(/\D/g, '').length < 8) { done.textContent = 'Revisá el número: tiene que tener al menos 8 dígitos.'; return; }
+  guardar({ landing: 'reservas', wpp: wpp });
+  fbq('track', 'Lead');
+  var url = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(MENSAJE);
+  done.innerHTML = '';
+  var p = document.createElement('p'); p.textContent = '¡Listo! Te llevamos a WhatsApp para coordinar la reserva.';
+  var a = document.createElement('a'); a.href = url; a.textContent = 'Si no se abre, tocá acá';
+  done.append(p, a);
+  setTimeout(function(){ location.href = url; }, 400);
+});
+</script>
+</body>
+</html>
