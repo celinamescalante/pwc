@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eventos en Palermo Wine Club · Fin de año, after office y lanzamientos</title>
+<meta name="description" content="Un bar de vinos en Palermo para eventos de 20 a 250 personas: dos pisos, seis sectores, cocina propia y cabina de DJ. Gorriti 5646.">
+<!-- Píxel de Meta (el mismo de Palermo Wine Club) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1715676559841695');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1715676559841695&ev=PageView&noscript=1" alt=""></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Archivo:wght@300;400;600&display=swap">
+<style>
+/* Layout: misma familia que la landing de reservas (afiche, mayúsculas condensadas, rojo de mural). Acá manda el espacio: foto grande, cifras del lugar y una grilla de sectores con capacidad. */
+:root{
+  --night:#100c0b; --ink:#1c1514; --red:#b81d18; --wine:#5e1013; --paper:#f2e9dc; --muted:#b9a99a;
+  --poster:"Anton", Impact, "Arial Narrow", sans-serif;
+  --body:"Archivo", system-ui, sans-serif;
+  --logo:"Abril Fatface", Georgia, serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--paper);font-family:var(--body);font-weight:300;font-size:1.05rem;line-height:1.6}
+a{color:var(--paper)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--poster);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.98;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.2rem,6vw,3.6rem)}
+h3{font-size:1.5rem}
+p{margin:0}
+.tag{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--poster);font-size:1.25rem;text-transform:uppercase;letter-spacing:.04em;color:var(--paper);background:var(--red);border:0;padding:.7em 1.5em;text-decoration:none;cursor:pointer;transition:transform .15s, background .15s}
+.btn:hover,.btn:focus-visible{background:#d42a22;transform:translateY(-2px);outline:2px solid var(--paper);outline-offset:3px}
+.mock{background:var(--paper);color:var(--night);font-size:.85rem;text-align:center;padding-block:.5em}
+section{padding-block:clamp(3.5rem,9vw,6rem)}
+
+/* Hero a todo el ancho con el salón */
+.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(16,12,11,.35) 0%,rgba(16,12,11,.2) 35%,rgba(16,12,11,.92) 85%,var(--night) 100%),url("salon.jpg") center 35%/cover}
+.hero .wrap{width:100%;padding-block:2rem 3rem;display:grid;gap:1.4rem}
+.brand{position:absolute;top:1.4rem;left:max(16px, env(safe-area-inset-left, 0px));font-family:var(--logo);font-size:1.6rem}
+.hero h1{font-size:clamp(3rem,9vw,6.4rem);max-width:12ch}
+.hero h1 span{color:var(--red)}
+.hero p.lead{max-width:46ch;font-size:1.15rem}
+
+/* Cifras del lugar */
+.stats{background:var(--red)}
+.stats ul{list-style:none;margin:0;padding-block:1.4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
+.stats b{display:block;font-family:var(--poster);font-weight:400;font-size:clamp(2rem,5vw,3rem);line-height:1}
+.stats span{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+
+/* Sectores */
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:end}
+.sectors{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,1.6rem);margin-top:2.6rem}
+.sector{display:grid;gap:.6rem;align-content:start;min-width:0}
+.sector .ph{aspect-ratio:4/3;max-width:100%;background:var(--ink) center/cover}
+.sector .row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;border-bottom:1px solid #3a2e2b;padding-bottom:.4rem}
+.sector .cap{font-family:var(--poster);font-size:1.1rem;color:var(--red);white-space:nowrap}
+.sector p{color:var(--muted);font-size:.95rem}
+.sector.wide{grid-column:span 2}
+.sector.wide .ph{aspect-ratio:16/9}
+.note-cap{margin-top:1.4rem;font-size:.9rem;color:var(--muted)}
+
+/* Fin de año */
+.fin{background:var(--wine)}
+.fin .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.fin .ph{aspect-ratio:4/5;max-width:100%;background:url("galeria.jpg") center/cover}
+
+/* Tipos de evento */
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2.4rem;border-top:1px solid #3a2e2b}
+.type{padding:1.4rem 1.4rem 1.4rem 0;border-bottom:1px solid #3a2e2b;display:grid;gap:.4rem;min-width:0}
+.type p{color:var(--muted)}
+
+/* Cocina y servicio */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.split .ph{aspect-ratio:4/5;max-width:100%;background:var(--ink) center/cover}
+.list{display:grid;gap:1rem;margin-top:1.6rem}
+.list div{display:grid;gap:.2rem;padding-left:1rem;border-left:3px solid var(--red)}
+.list p{color:var(--muted)}
+.incl{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,3vw,2rem);margin-top:2.4rem}
+.incl ul{margin:.8rem 0 0;padding-left:1.1rem;color:var(--muted);display:grid;gap:.3rem}
+
+/* Formulario */
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.form-side{display:grid;gap:1.2rem}
+.form-side .ph{aspect-ratio:16/11;max-width:100%;background:url("vip.jpg") center/cover;margin-top:.6rem}
+form{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.2rem;background:var(--ink);padding:clamp(1.2rem,4vw,2rem);border-top:4px solid var(--red)}
+.field{display:grid;gap:.35rem;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+input,select{font:inherit;font-weight:400;color:var(--paper);background:var(--night);border:1px solid #4a3b37;border-radius:0;padding:.75em .8em;width:100%}
+input:focus,select:focus{outline:2px solid var(--red);border-color:var(--red)}
+.form-foot{grid-column:1/-1;display:grid;gap:.8rem;margin-top:.4rem}
+.form-foot .btn{width:100%}
+.note{font-size:.86rem;color:var(--muted)}
+.done{grid-column:1/-1;border:1px solid var(--red);padding:1rem;display:grid;gap:.5rem}
+
+/* Preguntas */
+.faq{display:grid;margin-top:1.6rem;border-top:1px solid #3a2e2b}
+details{border-bottom:1px solid #3a2e2b;padding-block:1.1rem}
+summary{font-family:var(--poster);text-transform:uppercase;font-size:1.25rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--red)}
+details[open] summary::after{content:"–"}
+details p{margin-top:.6rem;max-width:62ch;color:var(--muted)}
+
+/* Contacto */
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.contact .ph{aspect-ratio:4/3;max-width:100%;background:url("entrada.jpg") center/cover}
+.contact dl{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1.4rem;margin-top:1.2rem}
+.contact dt{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:.15rem}
+.contact dd{margin:0;overflow-wrap:anywhere}
+footer{border-top:1px solid #3a2e2b;padding-block:1.5rem 6rem;font-size:.85rem;color:var(--muted)}
+
+.sticky{display:none}
+@media (max-width:820px){
+  .stats ul{grid-template-columns:repeat(2,1fr)}
+  .intro,.fin .wrap,.split,.form-wrap,.contact{grid-template-columns:1fr}
+  .sectors,.types,.incl{grid-template-columns:1fr}
+  .sector.wide{grid-column:auto}
+  .sector.wide .ph{aspect-ratio:4/3}
+  .fin .ph,.split .ph{aspect-ratio:4/3}
+  form{grid-template-columns:1fr}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;padding:.7rem max(16px, env(safe-area-inset-right, 0px)) calc(.7rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));background:rgba(16,12,11,.95)}
+  .sticky .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <span class="brand">Palermo Wine Club</span>
+  <div class="wrap">
+    <p class="tag" style="color:var(--paper)">Eventos · Gorriti 5646, Palermo</p>
+    <h1>Un bar de vinos a la medida de tu <span>equipo.</span></h1>
+    <p class="lead">Más de 500 m² en dos pisos, seis sectores, cocina propia y cabina de DJ. El bar entero o el sector que necesites, para grupos de 20 a 250 personas.</p>
+    <div><a class="btn" href="#consulta">Consultar disponibilidad</a></div>
+  </div>
+</div>
+
+<div class="stats">
+  <ul class="wrap">
+    <li><b>500 m²</b><span>Cubiertos</span></li>
+    <li><b>2</b><span>Pisos</span></li>
+    <li><b>6</b><span>Sectores</span></li>
+    <li><b>250</b><span>Personas</span></li>
+  </ul>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <p class="tag">El espacio</p>
+        <h2 style="margin-top:.6rem">Sector por sector.</h2>
+      </div>
+      <p>Dos pisos con el mural, la galería que mira al salón y el patio. Cada sector se reserva solo o combinado con otros, y se puede cerrar por separado. Las capacidades son con mesas; de pie el número sube.</p>
+    </div>
+    <div class="sectors">
+      <div class="sector wide">
+        <div class="ph" style="background-image:url('salon.jpg')" role="img" aria-label="Salón central con el mural rojo y mesas con velas"></div>
+        <div class="row"><h3>Salón central</h3><span class="cap">60 sentados · 100 de pie</span></div>
+        <p>Mesas largas contra el mural y la barra de vino tirado al lado. El corazón del lugar.</p>
+      </div>
+      <div class="sector">
+        <div class="ph" style="background-image:url('vip.jpg')" role="img" aria-label="Salón cerrado con mesa larga y ventanales"></div>
+        <div class="row"><h3>VIP</h3><span class="cap">30</span></div>
+        <p>Salón cerrado en el primer piso, con mesa larga. Ideal para eventos privados.</p>
+      </div>
+      <div class="sector">
+        <div class="ph" style="background-image:url('galeria-arriba.jpg')" role="img" aria-label="La galería del primer piso mirando al salón"></div>
+        <div class="row"><h3>Galería</h3><span class="cap">50</span></div>
+        <p>Primer piso, con mesas y la cabina de DJ mirando hacia el salón.</p>
+      </div>
+      <div class="sector">
+        <div class="ph" style="background-image:url('patio.jpg')" role="img" aria-label="Patio con plantas y alfombra"></div>
+        <div class="row"><h3>Patio</h3><span class="cap">50</span></div>
+        <p>Al aire libre, con mural, toldo, mesa larga y tribunas. Se cierra aparte.</p>
+      </div>
+      <div class="sector">
+        <div class="ph" style="background-image:url('barra.jpg')" role="img" aria-label="Barra y mesas altas con apliques de luz"></div>
+        <div class="row"><h3>Entrada y antepatio</h3><span class="cap">40 · 35</span></div>
+        <p>Barra y mesas altas, para recibir al grupo o armar un after office.</p>
+      </div>
+    </div>
+    <p class="note-cap">Local completo: hasta 250 personas, con acceso cerrado y lista de invitados.</p>
+  </div>
+</section>
+
+<section class="fin">
+  <div class="wrap">
+    <div style="display:grid;gap:1.2rem">
+      <p class="tag" style="color:var(--paper);opacity:.75">Noviembre y diciembre</p>
+      <h2>¿Quién organiza el fin de año?</h2>
+      <p>Cenas de equipo con vino tirado, cocina propia y DJ. Las fechas de fin de año se llenan primero: conviene consultar con tiempo.</p>
+      <div><a class="btn" href="#consulta">Ver fechas disponibles</a></div>
+    </div>
+    <div class="ph" role="img" aria-label="Galería con mesas largas"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="tag">Tipos de evento</p>
+    <h2 style="margin-top:.6rem">Lo que pasa acá adentro.</h2>
+    <div class="types">
+      <div class="type"><h3>Fin de año</h3><p>Cenas de equipo de noviembre y diciembre.</p></div>
+      <div class="type"><h3>After office</h3><p>Vino tirado y bocados de 19 a 22, sin cortar la noche del bar.</p></div>
+      <div class="type"><h3>Lanzamientos de marca</h3><p>Local completo, ambientación a medida y sectores para prensa o producto.</p></div>
+      <div class="type"><h3>Charlas y conferencias</h3><p>Galería o salón con proyección, micrófono y mesas en fila.</p></div>
+      <div class="type"><h3>Showcases y música</h3><p>Escenario, sonido propio y cabina de DJ.</p></div>
+      <div class="type"><h3>Cumpleaños y festejos</h3><p>Un sector con mesa larga, o el piso entero si son muchos.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap split">
+    <div class="ph" style="background-image:url('cocina.jpg')" role="img" aria-label="El equipo de cocina emplatando"></div>
+    <div>
+      <p class="tag">Menús y barra</p>
+      <h2 style="margin-top:.6rem">Cocina propia, menú a medida.</h2>
+      <p style="margin-top:1rem">La propuesta se arma sobre nuestra carta, según el evento. Si hay restricciones alimentarias, contanos y lo tenemos en cuenta.</p>
+      <div class="list">
+        <div><h3>Finger food</h3><p>Bocados fríos y calientes circulando, para eventos de pie.</p></div>
+        <div><h3>Mesa de picada</h3><p>Quesos, fiambres y conservas en mesa larga.</p></div>
+        <div><h3>Pizzas y calientes</h3><p>Salen de cocina toda la noche, para grupos grandes.</p></div>
+        <div><h3>Menú sentado</h3><p>Tres pasos con opción vegetariana, en mesas de hasta 30.</p></div>
+        <div><h3>Barra</h3><p>Vino tirado de bodegas argentinas, coctelería, cerveza y sin alcohol.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="incl">
+      <div><h3>Sonido y música</h3><ul><li>Sonido en los dos pisos</li><li>Cabina de DJ propia</li><li>DJ o banda de la casa, o el tuyo</li><li>Micrófono inalámbrico</li><li>Escenario para showcases</li></ul></div>
+      <div><h3>Ambientación</h3><ul><li>Luces regulables por sector</li><li>Cartelería y branding</li><li>Proyección en pantalla</li><li>Layout de mesas a medida</li><li>Flores, manteles y decoración</li></ul></div>
+      <div><h3>Servicio</h3><ul><li>Equipo de salón y barra dedicado</li><li>Coordinador de evento del día</li><li>Guardarropa y control de acceso</li><li>Wi-Fi</li><li>Accesibilidad en planta baja</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="form-band" id="consulta" style="background:var(--ink)">
+  <div class="wrap form-wrap">
+    <div class="form-side">
+      <p class="tag">Consultá disponibilidad</p>
+      <h2>Armemos tu evento.</h2>
+      <p>Contanos qué tenés en mente. Te respondemos por mail con la propuesta y coordinamos una visita al bar.</p>
+      <div class="ph" role="img" aria-label="Salón VIP con la mesa larga"></div>
+    </div>
+    <form id="f" novalidate style="background:var(--night)">
+      <div class="field full">
+        <label for="tipo">¿Qué tipo de evento es?</label>
+        <select id="tipo" required>
+          <option value="">Elegí una opción</option>
+          <option>Fin de año de empresa</option>
+          <option>Evento de marca o para un cliente</option>
+          <option>After office de equipo</option>
+          <option>Festejo con amigos</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="personas">¿Cuántas personas serían?</label>
+        <select id="personas" required>
+          <option value="">Elegí</option>
+          <option>Menos de 20</option><option>De 20 a 50</option><option>De 50 a 100</option><option>De 100 a 250</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="dias">¿Qué días les sirven?</label>
+        <select id="dias" required>
+          <option value="">Elegí</option>
+          <option>Lunes a jueves</option><option>Viernes o sábado</option><option>Cualquiera</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="fecha">¿Tenés una fecha en mente?</label>
+        <input id="fecha" placeholder="Por ejemplo: 12 de diciembre, o «a definir»">
+      </div>
+      <div class="field">
+        <label for="nombre">Nombre y apellido</label>
+        <input id="nombre" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="mail">Mail</label>
+        <input id="mail" type="email" autocomplete="email" required>
+      </div>
+      <div class="form-foot">
+        <button class="btn" type="submit">Enviar consulta</button>
+        <p class="note">Usamos tus datos para responder esta consulta y enviarte la propuesta. No los compartimos con terceros. <a href="#privacidad">Política de privacidad</a></p>
+      </div>
+      <div class="done" id="done" hidden></div>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:820px">
+    <p class="tag">Antes de reservar</p>
+    <div class="faq">
+      <details open><summary>¿Cuánto dura y a qué hora?</summary><p>Los eventos de tarde y after office van de 19 a 22, y los de noche, de 22 hasta el cierre. Viernes y sábados cerramos a las 3. También tomamos eventos de día, con horario a convenir.</p></details>
+      <details><summary>¿Exclusividad o un sector?</summary><p>Las dos. Podés reservar un sector y convivir con la noche del bar, o tomar el local completo con acceso cerrado y lista de invitados.</p></details>
+      <details><summary>¿El sonido está incluido?</summary><p>Sí. Sonido en los dos pisos, cabina de DJ, micrófono y escenario son de la casa. Podés traer tu DJ o banda, o armamos la programación nosotros.</p></details>
+      <details><summary>¿Puedo ambientar con mi marca?</summary><p>Sí. Cartelería, gráfica, proyección en pantalla y decoración a medida. El montaje se coordina el día anterior o la misma tarde.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap contact">
+    <div class="ph" role="img" aria-label="La entrada de Palermo Wine Club con el logo"></div>
+    <div>
+      <h2>Escribinos directo.</h2>
+      <dl>
+        <dt>WhatsApp</dt><dd>+54 9 11 2536-2984</dd>
+        <dt>Mail</dt><dd>eventos@palermowineclub.com</dd>
+        <dt>Instagram</dt><dd>@palermowineclub</dd>
+        <dt>Dirección</dt><dd>Gorriti 5646 · Palermo, CABA</dd>
+      </dl>
+      <div style="margin-top:1.6rem"><a class="btn" href="#consulta">Consultar disponibilidad</a></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="privacidad" style="padding-top:0">
+  <div class="wrap" style="max-width:820px">
+    <p class="tag">Política de privacidad</p>
+    <p class="note" style="margin-top:.8rem">Palermo Wine Club (Gorriti 5646, CABA) usa los datos que dejás en esta página solo para responder tu consulta o coordinar tu reserva. No los vendemos ni los compartimos con terceros. Si querés que los borremos, escribinos a eventos@palermowineclub.com. Esta página usa el píxel de Meta para medir las visitas que llegan desde nuestros anuncios.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">Palermo Wine Club · Gorriti 5646, CABA · @palermowineclub</div></footer>
+
+<div class="sticky"><a class="btn" href="#consulta">Consultar disponibilidad</a></div>
+
+<script>
+// ===== Dónde se guardan las consultas =====
+// Link de la implementación de Apps Script de la planilla «PWC — Consultas de landings».
+// Mientras esté vacío, el formulario funciona igual pero no guarda nada.
+var CONSULTAS_URL = '';
+
+// De dónde vino la persona: utm_source del anuncio, o meta/google si vino de un clic pago
+function origen(){
+  var q = new URLSearchParams(location.search);
+  var o = q.get('utm_source') || (q.get('fbclid') ? 'meta' : (q.get('gclid') ? 'google' : ''));
+  if (!o) { try { o = document.referrer ? new URL(document.referrer).hostname : 'directo'; } catch(e) { o = 'directo'; } }
+  return { origen: o, campana: q.get('utm_campaign') || '' };
+}
+// Manda los datos a la planilla sin frenar a la persona
+function guardar(datos){
+  if (!CONSULTAS_URL) return;
+  var o = origen(); datos.origen = o.origen; datos.campana = o.campana;
+  try { navigator.sendBeacon(CONSULTAS_URL, JSON.stringify(datos)); } catch(e) {}
+}
+
+// ===== Formulario de eventos: guarda la consulta y avisa por mail =====
+var f = document.getElementById('f');
+var done = document.getElementById('done');
+var NUM = '5491125362984';
+f.addEventListener('submit', function(e){
+  e.preventDefault();
+  var v = function(id){ return document.getElementById(id).value.trim(); };
+  var faltan = ['tipo','personas','dias','nombre','mail'].filter(function(id){ return !v(id); });
+  done.hidden = false;
+  if (faltan.length) { done.textContent = 'Completá los campos para enviar la consulta.'; return; }
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('mail'))) { done.textContent = 'Revisá el mail: parece que le falta algo.'; return; }
+  guardar({ landing: 'eventos', tipo: v('tipo'), personas: v('personas'), dias: v('dias'), fecha: v('fecha'), nombre: v('nombre'), mail: v('mail') });
+  fbq('track', 'Lead');
+  var texto = 'Hola! Soy ' + v('nombre') + '. Consulté desde la web por un evento: ' + v('tipo') + ', ' + v('personas') + ' personas' + (v('fecha') ? ', para ' + v('fecha') : '') + '.';
+  done.innerHTML = '<strong>Recibimos tu consulta.</strong><span>Te escribimos por mail con la propuesta. Si preferís, seguimos por WhatsApp.</span>';
+  var a = document.createElement('a'); a.href = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(texto);
+  a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Seguir por WhatsApp';
+  a.addEventListener('click', function(){ fbq('track', 'Contact'); });
+  done.appendChild(a);
+  f.querySelector('button').disabled = true;
+});
+</script>
+</body>
+</html>
