@@ -1,0 +1,8 @@
+{
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/", "destination": "/landings/links/index.html" },
+    { "source": "/catas/", "destination": "/landings/catas/index.html" },
+    { "source": "/catas/:archivo", "destination": "/landings/catas/:archivo" }
+  ]
+}
