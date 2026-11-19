@@ -2,7 +2,7 @@
   "trailingSlash": true,
   "rewrites": [
     { "source": "/", "destination": "/landings/links/index.html" },
-    { "source": "/catas/", "destination": "/landings/catas/index.html" },
-    { "source": "/catas/:archivo", "destination": "/landings/catas/:archivo" }
+    { "source": "/:landing(catas|reservas|eventos)/", "destination": "/landings/:landing/index.html" },
+    { "source": "/:landing(catas|reservas|eventos)/:archivo", "destination": "/landings/:landing/:archivo" }
   ]
 }
